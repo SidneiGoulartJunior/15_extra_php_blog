@@ -1,0 +1,253 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+    position: relative; /*Relativo a objetos com posição absoluta, como o footer*/
+}
+
+main {
+    margin-bottom: 250px; /*Espaçamento entre o conteúdo e o rodapé do site*/
+}
+
+    /* NAVBAR */
+#logo {
+    position: absolute;
+    top: 10px;
+    left: 9.5%;
+}
+
+#logo img {
+    width: 50px;
+}
+
+#navbar {
+    display: flex; /*Mais fácil de acertar os elementos*/
+    align-items: center; /*Alinhamento vertical*/
+    justify-content: center; /*Alinhamento horizontal*/
+    background-color: #161616;
+    padding: 20px; /*Espaçamento interno da barra de navegação*/
+    text-transform: uppercase; /*Transformando pra caixa alta os textos da navegação*/
+    list-style: none;
+}
+
+#navbar li {
+    margin: 0 10px; /*afastamento entre os itens entre si*/
+    padding: 5px; /*espaçamento interno*/
+}
+
+#navbar .nav-link {
+    color: #fff;
+    text-decoration: none; /*Tira os underlines dos links*/
+    transition: .5s; /*Animação configurada a seguir*/
+    font-size: 14px;
+}
+
+#navbar .nav-link:hover { /*Configuração de quando passa o mouse no elemento*/
+    color: #999
+}
+    /* HOME */
+#title-container {
+    min-width: 500px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#title-container h1 {
+    font-size: 50px;
+}
+
+#title-container p {
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+#posts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-box:first-child { /*A 1ª figura será da larhura da página*/
+    min-width: 100%;
+}
+
+.post-box { /*Demais figuras serão menores e se posicionarão igualmente abaixo*/
+    flex: 1 1 0;
+    margin: 0 1%;
+    margin-top: 20px;
+}
+
+.post-box img {
+    width: 100%;
+}
+
+.post-box .post-title {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.post-box .post-title a {
+    color: #000;
+    transition: .5s;
+}
+
+.post-box .post-title a:hover {
+    color: #999
+}
+
+.post-box .post-description {
+    color: #666;
+}
+
+.tags-container {
+    margin-top: 10px;
+}
+
+.tags-container a {
+    font-size: 14px;
+    color: #333;
+    display: inline-block; /*Pra ficar uma ao lado da outra*/
+    margin-right: 5px;
+}
+    /* POST */
+#post-container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto;
+    grid-template-areas: "main sidebar";
+    grid-gap: 10px;
+    padding-top: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 250px;
+}
+
+.content-container {
+    grid-area: main;
+}
+
+#main-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+#post-description {
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.post-content {
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+.img-container {
+    margin-bottom: 30px;
+}
+
+.img-container img {
+    width: 60%;
+}
+
+    /* POST ASIDE */
+
+.nav-container {
+    grid-area: sidebar;
+}
+
+#tags-title, #categories-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-weight: 300;
+}
+
+#tag-list, #categories-list {
+    list-style: none;
+}
+
+#tag-list li, #categories-list li {
+    margin-bottom: 10px;
+}
+
+#tag-list a, #categories-list a {
+    color: #666;
+    transition: .5s;
+}
+
+#tag-list a:hover, #categories-list a:hover {
+    color: #000;
+}
+
+    /* FOOTER */
+footer {
+    width: 100%; /*Para ter toda a largura da página*/
+    position: absolute; /*Possibilita jogarmos para o fundo*/
+    bottom: 0;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 50px 0;
+}
+
+    /* MOBILE */
+
+@media(max-width: 480px) {
+
+    /* HOME */
+header {
+    width: 100%;
+}
+
+#logo {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    left: 0;
+    width: 50px;
+}
+
+#navbar {
+    display: none;
+}
+
+#title-container {
+    min-width: 100%;
+    margin-top: 20px;
+}
+
+#posts-container {
+    margin-top: 20px;
+}
+
+.post-box {
+    flex: 100% 1 0; /*Sempre ocupar a tela inteira*/
+    padding: 15px;
+    margin: 0;
+}
+
+    /* POST */
+
+#post-container {
+    grid-template-columns: 100%;
+    padding: 15px;
+    grid-template-areas: "main"
+    "sidebar"; /*Agora 1 fica embaixo do outro*/
+}
+
+.img-container img {
+    width: 100%;
+}
+
+}
